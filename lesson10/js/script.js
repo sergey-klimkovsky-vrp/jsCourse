@@ -33,7 +33,9 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 
     //timer
-    let deadline = '2019-07-21';
+    //let deadline = '2019-07-02';
+    let deadline = new Date(2019, 6, 1, 15, 52, 24);
+    console.log(deadline);
 
     function getTimeRemaining(endTime) {
         let t = Date.parse(endTime) - Date.parse(new Date()),
@@ -48,6 +50,12 @@ window.addEventListener('DOMContentLoaded', function() {
             'minutes' : minutes,
             'hours' : hours
         };     
+    }
+
+    function soundClick() {
+        var audio = new Audio(); // Создаём новый элемент Audio
+        audio.src = 'zvuk_pozora.mp3'; // Указываем путь к звуку "клика"
+        audio.autoplay = true; // Автоматически запускаем
     }
 
     function setClock(id, endTime) {
@@ -73,6 +81,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 hours.textContent = '00';
                 minutes.textContent = '00';
                 seconds.textContent = '00';
+                soundClick();
             }
         }
     }
